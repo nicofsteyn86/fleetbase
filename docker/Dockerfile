@@ -167,5 +167,6 @@ CMD ["sh", "-c", "php artisan octane:frankenphp --max-requests=250 --port=8000 -
 
 # Application stage
 FROM base AS app
+RUN chmod +x /usr/local/bin/frankenphp
 ENTRYPOINT ["docker-php-entrypoint"]
 CMD ["sh", "-c", "php artisan octane:frankenphp --max-requests=250 --port=8000 --host=0.0.0.0"]

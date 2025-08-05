@@ -23,6 +23,7 @@ RUN install-php-extensions \
   # geos \
   sockets \
   pcntl \
+  swoole \
   @composer
 
 # Install build dependencies for GEOS
@@ -168,4 +169,4 @@ CMD ["sh", "-c", "php artisan octane:frankenphp --max-requests=250 --port=8000 -
 # Application stage
 FROM base AS app
 RUN chmod +x /usr/local/bin/frankenphp
-CMD ["php", "artisan", "octane:frankenphp", "--host=0.0.0.0", "--port=8000"]
+CMD ["php", "artisan", "octane:frankenphp", "--server=swoole", "--host=0.0.0.0", "--port=8000"]

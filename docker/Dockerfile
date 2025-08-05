@@ -167,5 +167,5 @@ CMD ["sh", "-c", "php artisan octane:frankenphp --max-requests=250 --port=8000 -
 
 # Application stage
 FROM base AS app
-ENTRYPOINT ["/sbin/ssm-parent", "-c", ".ssm-parent.yaml", "run", "--", "docker-php-entrypoint"]
+ENTRYPOINT ["docker-php-entrypoint"]
 CMD ["sh", "-c", "php artisan octane:frankenphp --max-requests=250 --port=8000 --host=0.0.0.0"]
